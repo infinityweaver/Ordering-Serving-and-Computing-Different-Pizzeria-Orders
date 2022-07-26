@@ -1,4 +1,4 @@
-gpackage pizzeria;
+package pizzeria;
 import java.util.*;
 
 public class DIYPizza extends Pizza
