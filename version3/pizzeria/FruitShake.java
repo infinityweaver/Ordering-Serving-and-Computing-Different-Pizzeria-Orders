@@ -1,7 +1,7 @@
 package pizzeria;
 import java.util.*;
 
-public class FruitShake
+public class FruitShake implements PricedItem
 {
 	private ShakeSize size;
 
@@ -26,5 +26,26 @@ public class FruitShake
 	public ShakeSize getSize()
 	{
 		return this.size;
+	}
+
+	@Override
+	public double computePrice()
+	{
+		double totalcost = 0;
+
+		for(Fruit f : this.fruits)
+			totalcost += f.getCost();
+
+		totalcost += 40;
+
+		switch(this.size)
+		{
+			case Medium: totalcost *= 1.45;
+				break;
+			case Large: totalcost *= 1.85;
+				break;
+		}
+
+		return totalcost;
 	}
 }
